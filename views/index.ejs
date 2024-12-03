@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Diplomatura</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  </head>
+  <body style="background-color: #4d8bd1;">
+    <%- include('partials/header')  %>
+      <div class="card">
+        <div class="card-header">          
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Nuestros Superheroes</h5>
+          <p class="card-text">Los superhéroes no son solo personajes ficticios, son símbolos de esperanza, inspiración y aspiración . 
+            Representan lo mejor de la humanidad y encarnan las cualidades que todos anhelamos: valentía, altruismo, determinación y justicia..
+            <a href="/api/heroe/crear" class="btn btn-primary">Nuevo Superhéroe</a>
+          </p>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                          <th scope="col">Acciones</th>
+                          <th scope="col">Superhéroes</th>
+                          <th scope="col">Identidad</th>
+                          <th scope="col">Edad</th>
+                          <th scope="col">Planeta</th>
+                          <th scope="col">Registrado</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% listaRenderizada.forEach( heroe => { %>
+                        <tr>
+                        <!--  <th><a class="btn btn-danger" href="/api/heroe/delete/<%= heroe._id %>">Eliminar</a></th>   -->
+                          <th>
+
+                            <a href="/api/heroe/update/<%= heroe._id %>" class="btn btn-warning">Editar</a>
+
+                            <form action="/api/heroe/delete/<%= heroe._id %>?_method=DELETE" method="POST" 
+                              onsubmit="return confirm('¿Estás seguro de que deseas eliminar este superhéroe?');">
+                              <button class="btn btn-danger" type="submit">Eliminar</button>
+                            </form>                                                     
+                          </th>
+                          <td><%= heroe.Nombre %></td>
+                          <td><%= heroe.Identidad %></td>
+                          <td><%= heroe.Edad %> años</td>
+                          <td><%= heroe.Planeta %></td>
+                          <td><%= heroe.Alta%></td>
+                        </tr>
+                        <% }); %>  
+                      </tbody>
+                </table>
+            </div>
+          <a href="/api/heroe/crear" class="btn btn-primary">Nuevo Superhéroe</a>
+        </div>
+      </div>  
+      <%- include('partials/footer.ejs')  %>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>
