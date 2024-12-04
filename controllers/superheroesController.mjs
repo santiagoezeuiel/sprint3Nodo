@@ -24,7 +24,7 @@ export async function obtenerSuperHeroePorIdController(req, res){
   const { id } = req.params;
   const superheroe = await obtenerSuperHeroePorId(id);  
   if(superheroe){
-      res.send(renderizandoSuperheroe(superheroe));
+      res.render(renderizandoSuperheroe(superheroe));
   }
   else{
       res.status(404).send({mensaje: "Superheroe no encontrado"});

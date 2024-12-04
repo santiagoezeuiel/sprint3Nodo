@@ -1,0 +1,50 @@
+ <!--  <div class="card">
+        <div class="card-header">          
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Nuestros Superheroes</h5>
+          <p class="card-text">Los superhéroes no son solo personajes ficticios, son símbolos de esperanza, inspiración y aspiración . 
+            Representan lo mejor de la humanidad y encarnan las cualidades que todos anhelamos: valentía, altruismo, determinación y justicia..
+            <a href="/api/heroe/crear" class="btn btn-primary">Nuevo Superhéroe</a>
+          </p>
+            <div  class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                          <th scope="col">Acciones</th>
+                          <th scope="col">Superhéroes</th>
+                          <th scope="col">Identidad</th>
+                          <th scope="col">Edad</th>
+                          <th scope="col">Planeta</th>
+                          <th scope="col">Registrado</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% listaRenderizada.forEach( heroe => { %>
+                        <tr>-->
+                        <!--  <th><a class="btn btn-danger" href="/api/heroe/delete/<%= heroe._id %>">Eliminar</a></th>   -->
+                          <!--<th>
+
+                            <a href="/api/heroe/update/<%= heroe._id %>" class="btn btn-warning">Editar</a>
+
+                            <form action="/api/heroe/delete/<%= heroe._id %>?_method=DELETE" method="POST" 
+                              onsubmit="return confirm('¿Estás seguro de que deseas eliminar este superhéroe?');">
+                              <button class="btn btn-danger" type="submit">Eliminar</button>
+                            </form>                                                     
+                          </th>
+                          <td><%= heroe.Nombre %></td>
+                          <td><%= heroe.Identidad %></td>
+                          <td><%= heroe.Edad %> años</td>
+                          <td><%= heroe.Planeta %></td>
+                          <td><%= heroe.Alta%></td>
+                        </tr>
+                        <% }); %>  
+                      </tbody>
+                </table>
+            </div>
+          <a href="/api/heroe/crear" class="btn btn-primary">Nuevo Superhéroe</a>
+        </div>
+      </div>  
+      
+    
+  </body>-->
