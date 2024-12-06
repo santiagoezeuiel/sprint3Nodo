@@ -1,0 +1,57 @@
+
+   
+  <div class="container my-5">
+    <!-- Tarjeta central -->
+    <div class="card shadow-lg" style="border-radius: 15px; overflow: hidden;">
+      <div class="card-header text-center" style="background-color: #ffcc00; color: #343a40; font-size: 1.5rem; font-weight: bold;">
+        Bienvenidos
+      </div>
+      <div class="card-body" style="background-color: #f0f4f8;">
+        <h5 class="card-title text-center" style="color: #4a90e2; font-weight: bold;">Nuestros Superhéroes</h5>
+        <p class="card-text text-justify" style="color: #555;">
+          Los superhéroes no son solo personajes ficticios, son símbolos de esperanza, inspiración y aspiración. 
+          Representan lo mejor de la humanidad y encarnan las cualidades que todos anhelamos: valentía, altruismo, determinación y justicia.
+        </p>
+        <div class="text-center my-4">
+          <a href="/api/heroe/crear" class="btn btn-primary btn-lg" style="background-color: #4a90e2; border: none;">Nuevo Superhéroe</a>
+        </div>
+        <!-- Tabla -->
+        <div class="table-responsive">
+          <table class="table table-hover table-bordered">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col">Acciones</th>
+                <th scope="col">Superhéroes</th>
+                <th scope="col">Identidad</th>
+                <th scope="col">Edad</th>
+                <th scope="col">Planeta</th>
+                <th scope="col">Registrado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% listaRenderizada.forEach( heroe => { %>
+              <tr>
+                <th>
+                  <a href="/api/heroe/update/<%= heroe._id %>" class="btn btn-warning btn-sm">Editar</a>
+                  <form action="/api/heroe/delete/<%= heroe._id %>?_method=DELETE" method="POST" 
+                    onsubmit="return confirm('¿Estás seguro de que deseas eliminar este superhéroe?');" class="d-inline">
+                    <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
+                  </form>
+                </th>
+                <td><%= heroe.Nombre %></td>
+                <td><%= heroe.Identidad %></td>
+                <td><%= heroe.Edad %> años</td>
+                <td><%= heroe.Planeta %></td>
+                <td><%= heroe.Alta %></td>
+              </tr>
+              <% }); %>  
+            </tbody>
+          </table>
+        </div>
+        <div class="text-center mt-4">
+          <a href="/api/heroe/crear" class="btn btn-primary btn-lg" style="background-color: #4a90e2; border: none;">Nuevo Superhéroe</a>
+        </div>
+      </div>
+    </div>
+  </div>
+ 

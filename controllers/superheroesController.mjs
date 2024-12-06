@@ -37,7 +37,9 @@ export async function obtenerTodosLosSuperHeroesController(req, res){
   const listaRenderizada = renderizandoListaSuperheroes(superheroes);
   // Envía la respuesta como JSON
   //res.json(listaRenderizada);
-  res.render('index', {listaRenderizada});
+  res.render('listasuperheroe', {listaRenderizada,
+    title: 'Lista de Superhéroes',
+  });
 }
 
 //--------------------------------------------------------------------------------------
