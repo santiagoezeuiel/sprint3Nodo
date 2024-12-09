@@ -19,6 +19,7 @@ import {
 
 import { validationResult } from 'express-validator';
 import SuperHero from '../models/SuperHero.mjs';
+import { title } from 'process';
 //--------------------------------------------------------------------------------------
 export async function obtenerSuperHeroePorIdController(req, res){
   const { id } = req.params;
@@ -62,16 +63,20 @@ export async function obtenerSuperHeroesMayoresDe30Controller(req, res){
 }
 //--------------------------------------------------------------------------------------
 export const FormularioNuevoSuperheroeController = (req, res) => {
-  res.render('addSuperheroe', { errores: [], datos: {} });
+  res.render('addSuperheroe', { errores: [], datos: {} ,
+  title:'Crear superheroe',
+  layout: 'layout'});
 };
 
 export const insertSuperHeroesController = async (req, res) => {  
   try {
     // Llama al servicio con los datos del formulario
     const nuevoSuperHeroe = await insertarSuperHeroe(req.body);
-    res.redirect('/api/heroes'); // Redirige a una vista o endpoint
+    res.redirect('/api/heroes') ; // Redirige a una vista o endpoint
   } catch (error) {    
-    res.status(500).send('Error al guardar el superhéroe'); // Manejo de errores
+    res.status(500).send('Error al guardar el superhéroe', {
+      title:'Error al crear super heroe',
+    }); // Manejo de errores
   }
 };
 
@@ -84,7 +89,9 @@ export const getSuperHeroeController = async (req, res) => {
     if (!heroe) {
       return res.status(404).send('Superhéroe no encontrado');
     }    
-    res.render('editarSuperHeroe', { heroe }); // Renderiza el formulario con los datos
+    res.render('editarSuperHeroe', { heroe,
+      title:'Editar superheroe',
+    }); // Renderiza el formulario con los datos
   } catch (error) {    
     res.status(500).send('Error al cargar los datos del superhéroe');
   }

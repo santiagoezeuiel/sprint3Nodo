@@ -39,6 +39,21 @@ app.get('/', (req, res) => {
   })
 })
 
+// Ruta para la página Acerca de 
+
+ app.get('/about', (req, res) => {
+  res.render('about', {title:'Acerca de Nosotros'});
+ });
+
+ //Ruta para la página de Contacto
+
+ app.get('/contact', (req, res) => {
+  res.render ('contact', {title:'Contáctanos'});
+ });
+
+
+
+
 app.use((req, res) => {
   res.status(404).send({ error: 'Ruta no encontrada' });
 });
