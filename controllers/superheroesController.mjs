@@ -186,7 +186,9 @@ export const deleteSuperHeroesController = async (req, res) => {
     }
     const superheroes = await obtenerTodosLosSuperHeroes();
     const listaRenderizada = renderizandoListaSuperheroes(superheroes);    
-    res.render('index', { listaRenderizada });
+    res.render('index', { listaRenderizada,
+      title: 'Lista de Superhéroes', 
+     });
   } catch (error) {
     console.error('Error al eliminar el superhéroe:', error.message);
     res.status(500).send('Error al eliminar el superhéroe');
